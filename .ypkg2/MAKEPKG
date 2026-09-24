@@ -1,10 +1,9 @@
 #!/bin/sh
 
 set -x
+cd .ypkg2/
 
 [ -d ../bin ] && cp -R ../bin .
-
-cd .ypkg2/
 . .pkginfo
 
 filelist=".pkginfo bin"
