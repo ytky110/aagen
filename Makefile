@@ -10,4 +10,14 @@ $(TARGET): $(SRC)
 .PHONY: clean
 
 clean:
-	rm -f bin/*
+	rm -fr bin/
+	rm -fr pkg/
+
+# For yports
+
+installpkg2: buildpkg2
+	ypkg2 install pkg/*
+
+buildpkg2:
+	mkdir -p pkg
+	.ypkg2/MAKEPKG

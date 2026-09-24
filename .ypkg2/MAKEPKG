@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -x
+
+[ -d ../bin ] && cp -R ../bin .
+
+cd .ypkg2/
+. .pkginfo
+
+filelist=".pkginfo bin"
+filename="$name.$version.$arch.$os.ypkg2.tar.zst"
+
+tar -c --zstd -f "$filename" $filelist
+mv "$filename" ../pkg/
